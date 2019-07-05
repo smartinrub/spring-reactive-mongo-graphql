@@ -1,0 +1,46 @@
+# OS generated files #
+######################
+.gitattributes
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# eclipse files #
+######################
+.classpath
+.checkstyle
+.project
+**/test-output/**
+# eclipse pmd plugin files #
+.pmd
+.pmdruleset.xml
+
+# IDEA files #
+######################
+.idea
+**/*.iml
+**/*.ipr
+**/*.iws
+**/bin/**
+
+# build files #
+######################
+build.properties
+tmp
+target
+*.versionsBackup
+*.war
+*.tar.gz
+
+# Local configs
+docker_config.yml
+docker-compose-filled.yml
+docker-compose.yml
+.log
+.mvn
+/logs
