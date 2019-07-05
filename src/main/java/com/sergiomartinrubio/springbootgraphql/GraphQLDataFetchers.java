@@ -11,29 +11,29 @@ public class GraphQLDataFetchers {
 
     private static List<Map<String, String>> hotels = List.of(
             Map.of("id", "1",
-                    "name", "name 1",
-                    "address", "123",
+                    "name", "The Venetian Las Vegas",
+                    "address", "3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America",
                     "roomId", "1"),
             Map.of("id", "2",
-                    "name", "name 2",
-                    "address", "321",
+                    "name", "Alexis Park All Suite Resort",
+                    "address", "Alexis Park All Suite Resort",
                     "roomId", "2"),
             Map.of("id", "3",
-                    "name", "name 3",
-                    "address", "789",
+                    "name", "Mirage Resort & Casino",
+                    "address", "3400 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America",
                     "roomId", "3")
 
     );
 
     private static List<Map<String, String>> rooms = List.of(
             Map.of("id", "1",
-                    "name", "name 1",
+                    "name", "Standard Double Room",
                     "rate", "50"),
             Map.of("id", "2",
-                    "name", "name 2",
-                    "rate", "20"),
+                    "name", "Piazza King Suite",
+                    "rate", "200"),
             Map.of("id", "3",
-                    "name", "name 1",
+                    "name", "King Volcano View Room",
                     "rate", "100")
     );
 
