@@ -10,29 +10,29 @@ import java.util.Map;
 public class GraphQLDataFetchers {
 
     private static List<Map<String, String>> hotels = List.of(
-            Map.of("id", "hotel-1",
+            Map.of("id", "1",
                     "name", "name 1",
                     "address", "123",
-                    "roomId", "room-1"),
-            Map.of("id", "hotel-2",
+                    "roomId", "1"),
+            Map.of("id", "2",
                     "name", "name 2",
                     "address", "321",
-                    "roomId", "room-2"),
-            Map.of("id", "hotel-3",
+                    "roomId", "2"),
+            Map.of("id", "3",
                     "name", "name 3",
                     "address", "789",
-                    "roomId", "room-3")
+                    "roomId", "3")
 
     );
 
     private static List<Map<String, String>> rooms = List.of(
-            Map.of("id", "room-1",
+            Map.of("id", "1",
                     "name", "name 1",
                     "rate", "50"),
-            Map.of("id", "room-2",
+            Map.of("id", "2",
                     "name", "name 2",
                     "rate", "20"),
-            Map.of("id", "room-3",
+            Map.of("id", "3",
                     "name", "name 1",
                     "rate", "100")
     );
