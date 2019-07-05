@@ -22,7 +22,6 @@ public class GraphQLDataFetchers {
                     "name", "Mirage Resort & Casino",
                     "address", "3400 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America",
                     "roomId", "3")
-
     );
 
     private static List<Map<String, String>> rooms = List.of(
