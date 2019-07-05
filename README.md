@@ -10,8 +10,7 @@ GraphQL Endpoint: `http://localhost:8080/graphql`
 
 ```
 {
-  hotelById(id: "hotel-2") {
-    id
+  hotelById(id: "1") {
     name
     address
     room {
@@ -27,12 +26,11 @@ Output:
 {
   "data": {
     "hotelById": {
-      "id": "hotel-2",
-      "name": "name 2",
-      "address": "321",
+      "name": "The Venetian Las Vegas",
+      "address": "3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America",
       "room": {
-        "name": "name 2",
-        "rate": 20
+        "name": "Standard Double Room",
+        "rate": 50
       }
     }
   }
