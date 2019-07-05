@@ -24,3 +24,19 @@ GraphQL Endpoint: `http://localhost:8080/graphql`
 }
 
 ```
+Output:
+```
+{
+  "data": {
+    "hotelById": {
+      "id": "hotel-2",
+      "name": "name 2",
+      "address": "321",
+      "room": {
+        "name": "name 2",
+        "rate": 20
+      }
+    }
+  }
+}
+```
