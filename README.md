@@ -2,9 +2,7 @@
 
 ## GraphQL Client
 
-### macOS installation
-
-`brew cask install graphiql`
+`http://localhost:8080/graphiql`
 
 ### Example
 
