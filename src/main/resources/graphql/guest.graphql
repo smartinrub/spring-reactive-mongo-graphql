@@ -1,0 +1,17 @@
+type Guest {
+    id: ID
+    firsName: String!
+    lastName: Float!
+    email: String
+    hotel: Hotel
+}
+
+extend type Query {
+    findAllGuests: [Guest]!
+    countGuests: Int!
+}
+
+extend type Mutation {
+    newGuest(firstName: String!, lastName: String!, hotel: ID!) : Guest!
+    deleteGuest(id: ID!): Boolean
+}

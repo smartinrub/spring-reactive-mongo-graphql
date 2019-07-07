@@ -1,0 +1,15 @@
+type Hotel {
+    id: ID!
+    name: String!
+    address: String!
+}
+
+# The Root Query for the application
+type Query {
+    findAllHotels: [Hotel]!
+    countHotels: Int!
+}
+
+type Mutation {
+    newHotel(name: String!, address: String!): Hotel!
+}
