@@ -3,15 +3,54 @@ databaseChangeLog:
       id: 1
       author: sergio
       changes:
-        - insert:
-            tableName: hotel
+        - createTable:
+            tableName: HOTEL
             columns:
               - column:
-                  name: id
-                  value: 1
+                  name: ID
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
               - column:
-                  name: name
-                  value: Hotel 1
+                  name: NAME
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
               - column:
-                  name: address
-                  value: address 1
+                  name: ADDRESS
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+  - changeSet:
+      id: 2
+      author: sergio
+      changes:
+        - insert:
+            tableName: HOTEL
+            columns:
+              - column:
+                  name: NAME
+                  value: Gran Hotel Miramar
+              - column:
+                  name: ADDRESS
+                  value: Paseo Reding, 22, Málaga, Málaga, 29016, Spain
+        - insert:
+            tableName: HOTEL
+            columns:
+              - column:
+                  name: NAME
+                  value: Vincci Málaga Hotel
+              - column:
+                  name: ADDRESS
+                  value: C/ Pacifico, 44, Málaga, Malaga, 29004, Spain
+        - insert:
+            tableName: HOTEL
+            columns:
+              - column:
+                  name: NAME
+                  value: Molina Lario Hotel
+              - column:
+                  name: ADDRESS
+                  value: Molina Lario 20-22, Málaga, Malaga, 29015, Spain
