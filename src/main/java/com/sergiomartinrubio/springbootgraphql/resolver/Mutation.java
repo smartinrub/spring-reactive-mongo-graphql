@@ -6,7 +6,9 @@ import com.sergiomartinrubio.springbootgraphql.model.Hotel;
 import com.sergiomartinrubio.springbootgraphql.repository.GuestRepository;
 import com.sergiomartinrubio.springbootgraphql.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class Mutation implements GraphQLMutationResolver {
 

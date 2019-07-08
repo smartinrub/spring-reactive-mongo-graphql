@@ -6,10 +6,10 @@ type Hotel {
 
 # The Root Query for the application
 type Query {
-    findAllHotels: [Hotel]!
-    countHotels: Int!
+    findAllHotels: [Hotel]
+    countHotels: Int
 }
 
 type Mutation {
-    newHotel(name: String!, address: String!): Hotel!
+    newHotel(name: String!, address: String!): Hotel
 }

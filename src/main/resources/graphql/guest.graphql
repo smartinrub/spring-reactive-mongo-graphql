@@ -7,11 +7,11 @@ type Guest {
 }
 
 extend type Query {
-    findAllGuests: [Guest]!
-    countGuests: Int!
+    findAllGuests: [Guest]
+    countGuests: Int
 }
 
 extend type Mutation {
-    newGuest(firstName: String!, lastName: String!, hotel: ID!) : Guest!
+    newGuest(firstName: String!, lastName: String!, hotel: ID!) : Guest
     deleteGuest(id: ID!): Boolean
 }
