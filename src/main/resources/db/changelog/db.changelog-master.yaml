@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: sergio
+      changes:
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: Hotel 1
+              - column:
+                  name: address
+                  value: address 1
