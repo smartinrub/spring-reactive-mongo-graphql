@@ -1,38 +1,55 @@
 # spring-boot-graphql
 
+## H2 Dashboard
+
+`http://localhost:8080/h2`
+
 ## GraphQL Client
 
 `http://localhost:8080/graphiql`
 
 ### Example
-
-GraphQL Endpoint: `http://localhost:8080/graphql`
-
+- Simple Query:
 ```
-{
-  hotelById(id: "1") {
+query {
+  findAllHotels {
     name
     address
     room {
-      name
-      rate
+      type
     }
   }
 }
+```
+- Query with Query Variables:
 
 ```
-Output:
-```
-{
-  "data": {
-    "hotelById": {
-      "name": "The Venetian Las Vegas",
-      "address": "3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America",
-      "room": {
-        "name": "Standard Double Room",
-        "rate": 50
-      }
+query($hotelId:ID) {
+  findHotelById(id:$hotelId) {
+    name
+    room {
+      type
+      occupants
     }
+  }
+  countHotels
+  findAllPayments {
+    name
   }
 }
 ```
+```
+{
+  "hotelId": "1"
+}
+```
+- Mutation
+```
+mutation {
+  newHotel(name:"test 1", address: "test 1"){
+    name
+    address
+  }
+}
+```
+
