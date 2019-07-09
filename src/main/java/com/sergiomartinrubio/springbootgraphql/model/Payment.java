@@ -3,23 +3,16 @@ package com.sergiomartinrubio.springbootgraphql.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "HOTEL")
-public class Hotel {
+@Table(name = "PAYMENT")
+public class Payment {
 
     @Id
-    @Column(name = "HOTEL_ID")
+    @Column(name = "PAYMENT_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-
-    private String address;
-
-    @OneToMany(mappedBy = "hotel")
-    private List<Room> room;
-
 }

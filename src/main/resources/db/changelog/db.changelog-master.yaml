@@ -7,7 +7,7 @@ databaseChangeLog:
             tableName: HOTEL
             columns:
               - column:
-                  name: ID
+                  name: HOTEL_ID
                   type: long
                   autoIncrement: true
                   constraints:
@@ -23,8 +23,54 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: true
+        - createTable:
+            tableName: ROOM
+            columns:
+              - column:
+                  name: ROOM_ID
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: HOTEL_ID
+                  type: long
+              - column:
+                  name: TYPE
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: OCCUPANTS
+                  type: int
+                  constraints:
+                    nullable: true
+        - createTable:
+            tableName: PAYMENT
+            columns:
+              - column:
+                  name: PAYMENT_ID
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: varchar(255)
   - changeSet:
       id: 2
+      author: sergio
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: HOTEL_ID
+            baseTableName: ROOM
+            constraintName: fk_room_hotel
+            referencedColumnNames: HOTEL_ID
+            referencedTableName: HOTEL
+  - changeSet:
+      id: 3
       author: sergio
       changes:
         - insert:
@@ -54,3 +100,79 @@ databaseChangeLog:
               - column:
                   name: ADDRESS
                   value: Molina Lario 20-22, Málaga, Malaga, 29015, Spain
+  - changeSet:
+      id: 4
+      author: sergio
+      changes:
+        - insert:
+            tableName: ROOM
+            columns:
+              - column:
+                  name: HOTEL_ID
+                  value: 1
+              - column:
+                  name: TYPE
+                  value: Double Room
+              - column:
+                  name: OCCUPANTS
+                  value: 2
+        - insert:
+            tableName: ROOM
+            columns:
+              - column:
+                  name: HOTEL_ID
+                  value: 1
+              - column:
+                  name: TYPE
+                  value: Single Room
+              - column:
+                  name: OCCUPANTS
+                  value: 1
+        - insert:
+            tableName: ROOM
+            columns:
+              - column:
+                  name: HOTEL_ID
+                  value: 2
+              - column:
+                  name: TYPE
+                  value: Junior Suite
+              - column:
+                  name: OCCUPANTS
+                  value: 1
+        - insert:
+            tableName: ROOM
+            columns:
+              - column:
+                  name: HOTEL_ID
+                  value: 3
+              - column:
+                  name: TYPE
+                  value: Family Room
+              - column:
+                  name: OCCUPANTS
+                  value: 3
+  - changeSet:
+      id: 5
+      author: sergio
+      changes:
+        - insert:
+            tableName: PAYMENT
+            columns:
+              - column:
+                  name: NAME
+                  value: MATER CARD
+        - insert:
+            tableName: PAYMENT
+            columns:
+              - column:
+                  name: NAME
+                  value: INSTALLMENTS
+        - insert:
+            tableName: PAYMENT
+            columns:
+              - column:
+                  name: NAME
+                  value: PAYPAL
+
+
