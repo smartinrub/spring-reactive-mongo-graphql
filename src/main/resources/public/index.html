@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GraphQl - Hotel Service</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+
+
+    <script>
+
+        function subscribeToHotels() {
+            let socket = new WebSocket("ws://localhost:8080/subscriptions");
+
+            socket.onopen = function () {
+                console.log("web socket opened");
+
+                let query = `
+                      subscription {
+                        hotelUpdates {
+                          name
+                          address
+                        }
+                      }
+                `;
+                let graphqlRequest = {
+                    query: query,
+                    variables: {}
+                };
+
+                socket.send(JSON.stringify(graphqlRequest));
+            };
+
+            socket.onmessage = function (event) {
+                let data = JSON.parse(event.data);
+                let hotel = data.hotels;
+                let name = hotel.name;
+                let address = hotel.address;
+                let hotelTag = '';
+
+                hotelTag += '<span class="hotelName">' + name + '</span>';
+                hotelTag += '<span class="hotelAddress">' + address + '</span>';
+
+                $('.hotel').html(hotelTag)
+            };
+        }
+
+        window.addEventListener("load", subscribeToHotels);
+    </script>
+</head>
+<body>
+<div class="col-sm-8">
+    <h3>Hotel Updates</h3>
+    <div class="hotel">Pending subscription...</div>
+</div>
+</body>
+</html>

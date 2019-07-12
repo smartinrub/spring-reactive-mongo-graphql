@@ -41,3 +41,7 @@ type Mutation {
     # Creates new payment method
     newPayment(name: String!): Payment
 }
+
+type Subscription {
+    hotelUpdates: Hotel!
+}
