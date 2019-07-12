@@ -16,6 +16,7 @@ type Room {
     type: String!
     # How many people can sleep in the room
     occupants: Int!
+    hotelId: ID!
 }
 
 type Payment {
@@ -40,6 +41,8 @@ type Query {
 type Mutation {
     # Creates new hotel
     newHotel(name: String!, address: String!): Hotel
+    # Creates new room
+    newRoom(type: String!, occupants: Int!, hotelId: ID!): Room
     # Creates new payment method
     newPayment(name: String!): Payment
 }

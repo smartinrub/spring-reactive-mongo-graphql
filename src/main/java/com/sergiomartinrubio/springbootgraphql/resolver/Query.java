@@ -18,18 +18,18 @@ public class Query implements GraphQLQueryResolver {
     private final PaymentRepository paymentRepository;
 
     public Iterable<Hotel> findAllHotels() {
-        return hotelRepository.findAll();
+        return hotelRepository.findAll().toIterable();
     }
 
-    public Optional<Hotel> findHotelById(Long id) {
-        return hotelRepository.findById(id);
+    public Optional<Hotel> findHotelById(String id) {
+        return hotelRepository.findById(id).blockOptional();
     }
 
-    public long countHotels() {
-        return hotelRepository.count();
+    public Optional<Long> countHotels() {
+        return hotelRepository.count().blockOptional();
     }
 
     public Iterable<Payment> findAllPayments() {
-        return paymentRepository.findAll();
+        return paymentRepository.findAll().toIterable();
     }
 }

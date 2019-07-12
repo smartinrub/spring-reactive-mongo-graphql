@@ -1,30 +1,22 @@
 package com.sergiomartinrubio.springbootgraphql.model;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 @Data
-@Entity
-@Table(name = "HOTEL")
+@Document
 public class Hotel {
 
     @Id
-    @Column(name = "HOTEL_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String name;
 
     private String address;
 
     private LocalDateTime creationDate;
-
-    @OneToMany(mappedBy = "hotel")
-    private List<Room> room;
 
 }

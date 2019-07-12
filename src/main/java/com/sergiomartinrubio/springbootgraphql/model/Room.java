@@ -1,25 +1,20 @@
 package com.sergiomartinrubio.springbootgraphql.model;
 
 import lombok.Data;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Entity
-@Table(name = "ROOM")
+@Document
 public class Room {
 
     @Id
-    @Column(name = "ROOM_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String type;
 
-    private String occupants;
+    private int occupants;
 
-    @ManyToOne
-    @JoinColumn(name = "HOTEL_ID", nullable = false)
-    private Hotel hotel;
+    private String hotelId;
 
 }
