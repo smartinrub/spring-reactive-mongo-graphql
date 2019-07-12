@@ -4,6 +4,8 @@ type Hotel {
     name: String!
     # Hotel address
     address: String!
+    # Date of the hotel registry creation
+    creationDate: String!
     # List of rooms for a particular hotel
     room: [Room]!
 }
@@ -43,5 +45,5 @@ type Mutation {
 }
 
 type Subscription {
-    hotelUpdates: Hotel!
+    getNewHotel: Hotel!
 }

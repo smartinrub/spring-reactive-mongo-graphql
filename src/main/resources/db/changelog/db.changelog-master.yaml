@@ -23,6 +23,12 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: true
+              - column:
+                  name: CREATION_DATE
+                  type: timestamp
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
         - createTable:
             tableName: ROOM
             columns:

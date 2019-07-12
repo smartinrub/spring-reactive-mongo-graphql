@@ -3,6 +3,9 @@ package com.sergiomartinrubio.springbootgraphql.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -18,6 +21,8 @@ public class Hotel {
     private String name;
 
     private String address;
+
+    private LocalDateTime creationDate;
 
     @OneToMany(mappedBy = "hotel")
     private List<Room> room;

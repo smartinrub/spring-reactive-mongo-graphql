@@ -8,6 +8,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.observables.ConnectableObservable;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -45,6 +46,7 @@ public class HotelPublisher {
         Hotel hotel = new Hotel();
         hotel.setName("Hotel " + counter);
         hotel.setAddress("Address " + counter);
+        hotel.setCreationDate(LocalDateTime.now());
         counter++;
         return hotel;
     }

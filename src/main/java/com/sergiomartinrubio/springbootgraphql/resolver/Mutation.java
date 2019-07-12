@@ -8,6 +8,9 @@ import com.sergiomartinrubio.springbootgraphql.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Component
 @RequiredArgsConstructor
 public class Mutation implements GraphQLMutationResolver {
@@ -19,6 +22,7 @@ public class Mutation implements GraphQLMutationResolver {
         Hotel hotel = new Hotel();
         hotel.setName(name);
         hotel.setAddress(address);
+        hotel.setCreationDate(LocalDateTime.now());
         hotelRepository.save(hotel);
         return hotel;
     }

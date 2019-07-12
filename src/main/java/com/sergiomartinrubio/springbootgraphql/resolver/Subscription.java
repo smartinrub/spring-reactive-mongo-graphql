@@ -13,7 +13,7 @@ public class Subscription implements GraphQLSubscriptionResolver {
 
     private final HotelPublisher hotelPublisher;
 
-    public Publisher<Hotel> hotelUpdates() {
+    public Publisher<Hotel> getNewHotel() {
         return hotelPublisher.getPublisher();
     }
 }
