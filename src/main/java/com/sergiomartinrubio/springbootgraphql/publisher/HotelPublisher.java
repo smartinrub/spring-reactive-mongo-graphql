@@ -8,7 +8,6 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.observables.ConnectableObservable;
 import org.springframework.stereotype.Component;
 
-import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -16,15 +15,14 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class HotelPublisher {
 
-    private static final int MIN_RANDOM = 0;
-    private static final int MAX_RANDOM = 5;
+    private static int counter = 0;
 
     private Flowable<Hotel> publisher;
 
     public HotelPublisher() {
         Observable<Hotel> hotelObservable = Observable.create(emitter -> {
             ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
-            executorService.scheduleAtFixedRate(newHotel(emitter), 0, 2, TimeUnit.SECONDS);
+            executorService.scheduleAtFixedRate(addHotel(emitter), 0, 2, TimeUnit.SECONDS);
         });
 
         ConnectableObservable<Hotel> connectableObservable = hotelObservable.share().publish();
@@ -32,27 +30,23 @@ public class HotelPublisher {
         publisher = connectableObservable.toFlowable(BackpressureStrategy.BUFFER);
     }
 
-    private Runnable newHotel(ObservableEmitter<Hotel> emitter) {
+    private Runnable addHotel(ObservableEmitter<Hotel> emitter) {
         return () -> {
-            Hotel hotel = getUpdates();
-            emitHotels(emitter, hotel);
+            Hotel hotel = createHotel();
+            emitHotel(emitter, hotel);
         };
     }
 
-    private void emitHotels(ObservableEmitter<Hotel> emitter, Hotel hotel) {
+    private void emitHotel(ObservableEmitter<Hotel> emitter, Hotel hotel) {
         emitter.onNext(hotel);
     }
 
-    private Hotel getUpdates() {
+    private Hotel createHotel() {
         Hotel hotel = new Hotel();
-        hotel.setName("Hotel " + getRandNumber());
-        hotel.setAddress("Address " + getRandNumber());
+        hotel.setName("Hotel " + counter);
+        hotel.setAddress("Address " + counter);
+        counter++;
         return hotel;
-    }
-
-    private int getRandNumber() {
-        Random rand = new Random();
-        return rand.nextInt((MAX_RANDOM - MIN_RANDOM) + 1) + MIN_RANDOM;
     }
 
     public Flowable<Hotel> getPublisher() {
