@@ -53,3 +53,12 @@ mutation {
 }
 ```
 
+## Notes
+
+To use subscriptions with Reactive MongoDB the Hotel collection must be capped.
+
+```shell
+mongo
+use test
+db.runCommand( { convertToCapped: 'hotel', size: 8192 } )
+```
