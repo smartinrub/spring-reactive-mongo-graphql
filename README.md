@@ -1,9 +1,5 @@
 # spring-boot-graphql
 
-## H2 Dashboard
-
-`http://localhost:8080/h2`
-
 ## GraphQL Client
 
 `http://localhost:8080/graphiql`
@@ -29,7 +25,6 @@ query($hotelId:ID) {
     name
     room {
       type
-      occupants
     }
   }
   countHotels
@@ -40,18 +35,27 @@ query($hotelId:ID) {
 ```
 ```
 {
-  "hotelId": "1"
+  "hotelId": "5d290660a48e64543d7fcb17"
 }
 ```
 - Mutation
 ```
 mutation {
-  newHotel(name:"test 1", address: "test 1"){
-    name
-    address
+  newHotel(name: "myHotel", address: "test") {
+    id
+    creationDate
+  }
+}
+mutation {
+  newRoom(type: "test", occupants: 2, hotelId: "5d290660a48e64543d7fcb17") {
+    id
   }
 }
 ```
+
+## Graphql Subscription page
+
+`http://localhost:8080/index.html`
 
 ## Notes
 
